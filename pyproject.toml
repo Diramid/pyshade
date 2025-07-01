@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 [project.urls]
-"Repository" = "https://github.com/diramid/pyshade"
+"Repository" = "https://github.com/Diramid/pyshade"
 
 [tool.setuptools.packages.find]
 where = ["."]

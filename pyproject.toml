@@ -1,0 +1,28 @@
+# pyproject.toml
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyshade"
+version = "1.0.0"
+description = "CryptoShade implentation in Python"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+  { name = "Diramid Team", email = "you@example.com" }
+]
+requires-python = ">=3.7"
+dependencies = [
+]
+
+[project.urls]
+"Repository" = "https://github.com/diramid/pyshade"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["alpha*", "beta*"]

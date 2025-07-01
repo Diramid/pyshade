@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: pyshade
+Version: 1.0.0
+Summary: CryptoShade implentation in Python
+Author-email: Diramid Team <you@example.com>
+License: MIT
+Project-URL: Repository, https://github.com/diramid/pyshade
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file

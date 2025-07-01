@@ -1,0 +1,7 @@
+LICENSE
+README.md
+pyproject.toml
+pyshade.egg-info/PKG-INFO
+pyshade.egg-info/SOURCES.txt
+pyshade.egg-info/dependency_links.txt
+pyshade.egg-info/top_level.txt

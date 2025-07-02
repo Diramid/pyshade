@@ -38,32 +38,75 @@ from pyshade.interface import Pyshade
 
 ### **1. Encryption & Decryption (Standard Key)**  
 #### **Encrypt**  
-```python
-encrypted_data = Pyshade.encrypt("hello world")
-```  
+
+* This is for encrypting string
+  ```python
+  encrypted_data = Pyshade.encrypt("hello world")
+  ```  
 Returns a `dict` with:  
 - **`data`**: Obfuscated string (e.g., `"364/830/978/978/377/..."`)  
-- **`key`**: One-time numeric mapping (e.g., `{"a": 253, "b": 721, ...}`)  
+- **`key`**: One-time numeric mapping (dict type) (e.g., `{"a": 253, "b": 721, ...}`)  
+
+<br>
+
+* This is for encrypting list and dictionary 
+  ```python
+  encrypted_data = Pyshade.encrypt_struct(["apple", "orange", "banana"])  
+  ```  
+Returns a `dict` with:  
+- **`data`**: Obfuscated string (e.g., `"364/830/978/978/377/..."`)  
+- **`key`**: One-time numeric mapping (dict type) (e.g., `{"a": 253, "b": 721, ...}`)  
 
 #### **Decrypt**  
-```python
-decrypted = Pyshade.decrypt(encrypted_data["data"], encrypted_data["key"])
-print(decrypted)  # "hello world"
-```  
+
+* This is for string decryption
+  ```python
+  decrypted = Pyshade.decrypt(encrypted_data["data"], encrypted_data["key"])
+  print(decrypted)  # output: "hello world"
+  ```  
+* This is for dict or list decryption
+  ```python
+  decrypted = Pyshade.decrypt_struct(encrypted_data["data"], encrypted_data["key"])
+  print(decrypted)  # output: { "username": "john_doe1234", "password": "123456789" }
+  ```  
+
+> ⚠️ **WARNING**  
+> The key is **one-time use only**. Lose it, and decryption is *impossible*!  
+
 
 ### **2. Encryption & Decryption (JSON Key)**  
 #### **Encrypt**  
-```python
-encrypted_data = Pyshade.encrypt_jsonkey("hello world")
-```  
-Returns:  
-- **`data`**: Same obfuscated string.  
-- **`key`**: Key as a JSON string (e.g., `'{"a": 253, "b": 721, ...}'`).  
+
+* This is for encrypting string
+  ```python
+  encrypted_data = Pyshade.encrypt_jsonkey("hello world")
+  ```  
+Returns a `dict` with:  
+- **`data`**: Obfuscated string (e.g., `"364/830/978/978/377/..."`)  
+- **`key`**: JSON string of One-time numeric mapping (e.g., `"{"a": 253, "b": 721, ...}"`)  
+
+<br>
+
+* This is for encrypting list and dictionary 
+  ```python
+  encrypted_data = Pyshade.encrypt_struct_jsonkey(["apple", "orange", "banana"])  
+  ```  
+Returns a `dict` with:  
+- **`data`**: Obfuscated string (e.g., `"364/830/978/978/377/..."`)  
+- **`key`**: JSON string of One-time numeric mapping (e.g., `"{"a": 253, "b": 721, ...}"`)  
 
 #### **Decrypt**  
-```python
-decrypted = Pyshade.decrypt_jsonkey(encrypted_data["data"], encrypted_data["key"])
-```  
+
+* This is for string decryption
+  ```python
+  decrypted = Pyshade.decrypt_jsonkey(encrypted_data["data"], encrypted_data["key"])
+  print(decrypted)  # output: "hello world"
+  ```  
+* This is for dict or list decryption
+  ```python
+  decrypted = Pyshade.decrypt_struct_jsonkey(encrypted_data["data"], encrypted_data["key"])
+  print(decrypted)  # output: { "username": "john_doe1234", "password": "123456789" }
+  ```  
 
 > ⚠️ **WARNING**  
 > The key is **one-time use only**. Lose it, and decryption is *impossible*!  
@@ -71,7 +114,7 @@ decrypted = Pyshade.decrypt_jsonkey(encrypted_data["data"], encrypted_data["key"
 ---
 
 ## **💡 Pro Tips**  
-- **Never reuse keys**: Each `encrypt()` call generates a *unique* cipher.  
+- **Never reuse keys**: Each `encrypt_method()` call generates a *unique* cipher.  
 - **Use JSON keys for transmission**: Safer for APIs/networked data.  
 - **Static methods**: No need to instantiate `Pyshade`—just call the methods directly!  
 

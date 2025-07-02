@@ -1,6 +1,6 @@
 # **`pyshade`**  
 ### *An Unbreakable, Lightning-Fast Encryption Library for Python*  
-**Version 1.0.0**  
+**Version 1.1.0**  
 <sub>Built on the **CryptoShade** reversible algorithm</sub>  
 
 ---

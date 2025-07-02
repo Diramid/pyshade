@@ -1,3 +1,4 @@
-test
+test.py
 .VSCodeCounter
 myvenv
+**/__pycache__/
